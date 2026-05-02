@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-do Học Tập</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <h1>📚 To-do Học Tập</h1>
+      <div id="clock">--</div>
+    </div>
+    <button id="btnDark">🌙 Dark Mode</button>
+  </header>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab on" id="t-list">📋 Danh sách</button>
+    <button class="tab" id="t-cal">📅 Lịch &amp; Timeline</button>
+  </div>
+
+  <!-- ══ PANEL: DANH SÁCH ══ -->
+  <div class="panel on" id="p-list">
+
+    <!-- Form thêm việc -->
+    <div class="card">
+      <div class="row">
+        <div class="grp grow">
+          <label for="iText">Công việc</label>
+          <input type="text" id="iText" placeholder="Nhập công việc học tập..." />
+        </div>
+        <div class="grp">
+          <label for="iDate">Ngày</label>
+          <input type="date" id="iDate" />
+        </div>
+        <div class="grp">
+          <label for="iTime">Giờ</label>
+          <input type="time" id="iTime" />
+        </div>
+        <div class="grp">
+          <label for="iPri">Ưu tiên</label>
+          <select id="iPri">
+            <option value="high">🔴 Cao</option>
+            <option value="mid" selected>🟡 Vừa</option>
+            <option value="low">🟢 Thấp</option>
+          </select>
+        </div>
+        <button class="btn-add" id="btnAdd">+ Thêm</button>
+      </div>
+    </div>
+
+    <!-- Thống kê -->
+    <div class="stats">
+      <div class="pill">📌 Còn lại: <span id="sRem">0</span></div>
+      <div class="pill">✅ Xong: <span id="sDone">0</span></div>
+      <div class="pill">📦 Tổng: <span id="sAll">0</span></div>
+    </div>
+
+    <!-- Lọc -->
+    <div class="filters">
+      <button class="fbtn on" data-f="all">Tất cả</button>
+      <button class="fbtn" data-f="pending">Chưa xong</button>
+      <button class="fbtn" data-f="done">Đã xong</button>
+      <button class="fbtn" data-f="today">Hôm nay</button>
+    </div>
+
+    <!-- Danh sách công việc -->
+    <ul id="taskList"></ul>
+
+  </div><!-- end p-list -->
+
+  <!-- ══ PANEL: LỊCH ══ -->
+  <div class="panel" id="p-cal">
+
+    <div class="card">
+      <div class="cal-header">
+        <div class="cal-nav">
+          <button id="btnPrev">&#8249;</button>
+          <h2 id="calLabel">--</h2>
+          <button id="btnNext">&#8250;</button>
+        </div>
+        <button class="fbtn on" id="btnToday">Hôm nay</button>
+      </div>
+      <div class="grid7" id="calGrid"></div>
+    </div>
+
+    <div class="card">
+      <div class="dlabel">Lịch ngày <span id="dayLabel">--</span></div>
+      <div id="tlBox"></div>
+    </div>
+
+  </div><!-- end p-cal -->
+
+</div><!-- end wrap -->
+
+<script src="app.js"></script>
+</body>
+</html>
